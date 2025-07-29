@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/moviescope/static/css/main.dd8b1530.css",
-    "main.js": "/moviescope/static/js/main.27c0e974.js",
+    "main.js": "/moviescope/static/js/main.499e7441.js",
     "index.html": "/moviescope/index.html",
     "main.dd8b1530.css.map": "/moviescope/static/css/main.dd8b1530.css.map",
-    "main.27c0e974.js.map": "/moviescope/static/js/main.27c0e974.js.map"
+    "main.499e7441.js.map": "/moviescope/static/js/main.499e7441.js.map"
   },
   "entrypoints": [
     "static/css/main.dd8b1530.css",
-    "static/js/main.27c0e974.js"
+    "static/js/main.499e7441.js"
   ]
 }
