@@ -19,7 +19,7 @@ const NavigationHeader = () => {
             onClick={handleLogoClick}
           >
               <img 
-                src="/icon.svg"
+                src="/logo.svg"
                 alt="Logo"
                 className="w-10 "
               />
