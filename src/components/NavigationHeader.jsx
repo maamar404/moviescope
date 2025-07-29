@@ -18,11 +18,11 @@ const NavigationHeader = () => {
             className="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform duration-200"
             onClick={handleLogoClick}
           >
-              <img 
-                src="/logo.svg"
+              <img
+                src={`${process.env.PUBLIC_URL}/logo.svg`} 
                 alt="Logo"
-                className="w-10 "
-              />
+                className="w-10"
+                />
             <span className="text-xl font-bold text-white">MovieScope</span>
           </div>
 
