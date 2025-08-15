@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchIcon, BellIcon, UserIcon } from 'lucide-react';
 
 const NavigationHeader = () => {
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
     navigate('/');
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -83,23 +92,69 @@ const NavigationHeader = () => {
             </button>
 
             {/* Mobile menu button */}
-            <button className="md:hidden p-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button 
+              className="md:hidden p-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                // Close icon (X)
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                // Hamburger icon
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu (hidden by default) */}
-      <div className="md:hidden border-t border-white/10 bg-black/95">
+      {/* Mobile Navigation Menu */}
+      <div className={`md:hidden border-t border-white/10 bg-black/95 transition-all duration-300 ease-in-out overflow-hidden ${
+        isMobileMenuOpen 
+          ? 'max-h-64 opacity-100' 
+          : 'max-h-0 opacity-0'
+      }`}>
         <div className="px-4 py-3 space-y-2">
-          <a href="#" className="block text-white hover:text-blue-400 transition-colors font-medium py-2">Home</a>
-          <a href="#" className="block text-gray-300 hover:text-white transition-colors font-medium py-2">Movies</a>
-          <a href="#" className="block text-gray-300 hover:text-white transition-colors font-medium py-2">TV Shows</a>
-          <a href="#" className="block text-gray-300 hover:text-white transition-colors font-medium py-2">Trending</a>
-          <a href="#" className="block text-gray-300 hover:text-white transition-colors font-medium py-2">My List</a>
+          <a 
+            href="#" 
+            className="block text-white hover:text-blue-400 transition-colors font-medium py-2"
+            onClick={closeMobileMenu}
+          >
+            Home
+          </a>
+          <a 
+            href="#" 
+            className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+            onClick={closeMobileMenu}
+          >
+            Movies
+          </a>
+          <a 
+            href="#" 
+            className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+            onClick={closeMobileMenu}
+          >
+            TV Shows
+          </a>
+          <a 
+            href="#" 
+            className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+            onClick={closeMobileMenu}
+          >
+            Trending
+          </a>
+          <a 
+            href="#" 
+            className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+            onClick={closeMobileMenu}
+          >
+            My List
+          </a>
         </div>
       </div>
     </div>
